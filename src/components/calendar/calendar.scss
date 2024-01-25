@@ -1,0 +1,46 @@
+.calendarBlock {
+  display: none;
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.planner-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.visible {
+  display: block;
+
+  height: 350px;
+  width: 400px;
+  background-color: #a8a8a8;
+  border-radius: 10px;
+}
+
+.calendar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+}
+
+.button-image {
+  height: 25px;
+  width: 25px;
+}
+
+.button-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+}
