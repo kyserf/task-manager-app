@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import { getTodos, updateTodoTitle, deleteTodo } from '../../api/api';
 import { useEffect, useState } from 'react';
 import { Calendar } from '../calendar/Calendar';
+import classNames from "classnames";
 
 export const TodoList = ({ tempTodos, setTempTodos }) => {
   const [todos, setTodos] = useState([]);
   const [editableTodoId, setEditableTodoId] = useState(null);
   const [editedTitle, setEditedTitle] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +46,10 @@ export const TodoList = ({ tempTodos, setTempTodos }) => {
     } catch (error) {
       console.error('Error updating todo title:', error);
     }
+  };
+
+  const handleButtonClick = () => {
+    setIsVisible(!isVisible);
   };
 
   return (
@@ -87,8 +93,15 @@ export const TodoList = ({ tempTodos, setTempTodos }) => {
         ))}
       </div>
 
-      <div className='calendar-block'>
-        <Calendar todos={todos} />
+      <button 
+        className='btn btn-primary modal-button'
+        onClick={handleButtonClick}
+      >
+        Show calendar
+      </button>
+
+      <div className={classNames('calendarBlock', { visible: isVisible })}>
+        <Calendar todos={todos} onClick={handleButtonClick} />
       </div>
     </>
   );

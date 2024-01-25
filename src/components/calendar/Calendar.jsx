@@ -1,49 +1,46 @@
 /* eslint-disable react/prop-types */
-import { Calendar as Planner } from "react-calendar";
-import classNames from "classnames";
-import { useState } from "react";
+import { Calendar as Planner, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export const Calendar = ({ todos }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [value, onChange] = useState(new Date());
+export const Calendar = ({ todos, onClick }) => {
 
-  const handleButtonClick = () => {
-    setIsVisible(!isVisible);
-  };
+  const todosWithFormattedDate = todos.map(todo => {
+    const formattedDate = new Date(todo.date);
+  
+    return {
+      ...todo,
+      date: formattedDate,
+    };
+  });
 
-  const events = todos.map((task) => ({
-    title: task.title,
-    start: task.id,
-    end: task.id,
+  const localizer = momentLocalizer(moment);
+
+  const events = todosWithFormattedDate.map((todo) => ({
+    title: todo.title,
+    start: todo.date,
+    end: todo.date,
+    allDay: true,
   }));
 
   return (
-    <div>
-      <button 
-        className='btn btn-primary modal-button'
-        onClick={handleButtonClick}
-      >
-        Show calendar
-      </button>
-
-      <div className={classNames('calendarBlock', { visible: isVisible })}>
-        <div className="planner-wrapper">
-          <button onClick={handleButtonClick} className="button-close">
-            <img 
-              src=".../../../public/close.svg" 
-              alt="close-button" 
-              className="button-image"
-            />
-          </button>
-          <Planner
-            className='calendar'
-            events={events}
-            onChange={onChange} 
-            value={value}
+    <>
+      <div className="planner-wrapper">
+        <button onClick={onClick} className="button-close">
+          <img 
+            src="../../../public/close.svg" 
+            alt="close-button" 
+            className="button-image"
           />
-        </div>
+        </button>
+        <Planner
+          className='calendar'
+          events={events}
+          localizer={localizer}
+          startAccessor="start"
+          endAccessor="end"
+        />
       </div>
-    </div>
+    </>
   )
 }

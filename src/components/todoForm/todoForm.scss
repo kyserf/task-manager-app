@@ -3,8 +3,11 @@
     position: relative;
 
     display: flex;
-    align-items: center;
-    height: 60px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+
+    height: 120px;
 
     margin-bottom: 50px;
   }
@@ -24,11 +27,18 @@
     font-weight: 400;
     line-height: 26px;
   }
+
+  &__input--date {
+    width: 200px;
+    padding-right: 16px;
+  }
 }
 
 .form__button {
   position: absolute;
   right: 0;
+  top: 0;
 
   height: 54px;
+  width: 80px;
 }

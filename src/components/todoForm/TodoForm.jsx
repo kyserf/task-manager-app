@@ -6,6 +6,7 @@ import { addTodo } from "../../api/api";
 export const TodoForm = () => {
   const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
+  const [date, setDate] = useState(new Date());
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,12 +14,15 @@ export const TodoForm = () => {
     const newTodo = {
       id: Date.now().toString(),
       title: todo,
+      date: date,
     };
   
     try {
       await addTodo(newTodo);
       setTodoList(prevTodoList => [...prevTodoList, newTodo]);
       setTodo('');
+      setDate(null);
+
     } catch (error) {
       console.error("Error adding todo:", error);
     }
@@ -35,7 +39,13 @@ export const TodoForm = () => {
           onChange={(e) => setTodo(e.target.value)}
         />
 
-        <button type="submit" className="btn btn-primary form__button">Add Todo</button>
+        <input 
+          type="date" 
+          className="form__input form__input--date" 
+          onChange={(e) => setDate(e.target.value)}
+        />
+
+        <button type="submit" className="btn btn-primary form__button">Add</button>
       </form>
 
       <TodoList tempTodos={todoList} setTempTodos={setTodoList} />

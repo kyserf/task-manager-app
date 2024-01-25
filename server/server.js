@@ -13,6 +13,7 @@ mongoose.connect('mongodb://localhost:27017/todosDB', {});
 const todoSchema = new mongoose.Schema({
   id: String,
   title: String,
+  date: Date,
 })
 
 const Todo = mongoose.model('Todo', todoSchema);

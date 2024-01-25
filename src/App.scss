@@ -1,6 +1,7 @@
 @import url(./components/todoForm/todoForm.scss);
 @import url(./components/todoList/todoList.scss);
 @import url(./components/calendar/calendar.scss);
+@import 'react-big-calendar/lib/sass/styles';
 
 .app {
   position: relative;

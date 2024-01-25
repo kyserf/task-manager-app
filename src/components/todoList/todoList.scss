@@ -37,8 +37,18 @@
   }
 }
 
-.calendar-block {
+.modal-button {
   position: absolute;
-  left: 300px;
+  left: 200px;
   top: 50%;
+}
+
+.calendarBlock {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vh;
 }
