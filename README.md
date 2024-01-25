@@ -10,10 +10,11 @@ This project aims to create an interactive web application that enables users to
 - SCSS
 - Bootstrap
 - REST API
+- Express
 
   ## Getting Started
   Clone repo
-  git clone https://github.com/kyserf/task-manager-app.git
+  - git clone https://github.com/kyserf/task-manager-app.git
 
   Frontend:
   - npm install
