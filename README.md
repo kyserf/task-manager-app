@@ -1,8 +1,25 @@
-# React + Vite
+# Task manager app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overwiew
+This project aims to create an interactive web application that enables users to create, edit, and delete tasks. The app is connected to the server with DB. Also, the Calendar is integrated for task scheduling.
 
-Currently, two official plugins are available:
+## Technology Stack
+- React
+- Node JS
+- MongoDB
+- SCSS
+- Bootstrap
+- REST API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  ## Getting Started
+  Clone repo
+  git clone https://github.com/kyserf/task-manager-app.git
+
+  Frontend:
+  - npm install
+  - npm run dev
+ 
+  Server:
+  - cd server
+  - npm install
+  - npm start
