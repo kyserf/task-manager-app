@@ -3,6 +3,8 @@ import { getTodos, updateTodoTitle, deleteTodo } from '../../api/api';
 import { useEffect, useState } from 'react';
 import { Calendar } from '../calendar/Calendar';
 import classNames from "classnames";
+import pencil from "../../../dist/pencil.svg";
+import trash from "../../../dist/trash.svg";
 
 export const TodoList = ({ tempTodos, setTempTodos }) => {
   const [todos, setTodos] = useState([]);
@@ -72,7 +74,7 @@ export const TodoList = ({ tempTodos, setTempTodos }) => {
                 <div className='todoList__todo_buttonsWrapper'>
                   <button className='todoList__todo_button'>
                     <img 
-                      src="../../public/pencil.svg" 
+                      src={pencil} 
                       alt="rename" 
                       className='todoList__todo_button_img'
                       onClick={() => handleEditTitle(todo.id, todo.title)}
@@ -81,7 +83,7 @@ export const TodoList = ({ tempTodos, setTempTodos }) => {
 
                   <button className='todoList__todo_button' onClick={() => handleDelete(todo.id)}>
                     <img 
-                      src="../../public/trash.svg" 
+                      src={trash}
                       alt="delete" 
                       className='todoList__todo_button_img' 
                     />

@@ -2,6 +2,7 @@
 import { Calendar as Planner, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import "bootstrap/dist/css/bootstrap.min.css";
+import close from "../../../dist/close.svg";
 
 export const Calendar = ({ todos, onClick }) => {
 
@@ -28,7 +29,7 @@ export const Calendar = ({ todos, onClick }) => {
       <div className="planner-wrapper">
         <button onClick={onClick} className="button-close">
           <img 
-            src="../../../public/close.svg" 
+            src={close}
             alt="close-button" 
             className="button-image"
           />
